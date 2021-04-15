@@ -1,1 +1,250 @@
-/* No CSS *//*# sourceMappingURL=main.css.map */
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+main {
+  background-color: #1e1e3c;
+  height: 100vh;
+  color: whitesmoke;
+}
+
+.wrapper {
+  height: 60%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 50%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  color: rebeccapurple;
+}
+
+.select-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: column-reverse;
+          flex-direction: column-reverse;
+  position: relative;
+  width: 40px;
+}
+
+.options-container {
+  background-color: #5656cf;
+  width: 75px;
+  position: absolute;
+  top: 4rem;
+  max-height: 0px;
+  opacity: 0;
+  overflow: hidden;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+  color: whitesmoke;
+}
+
+.options-container.active {
+  max-height: 200px;
+  opacity: 1;
+}
+
+.option {
+  padding: 0.35rem 0.5rem;
+  cursor: pointer;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+.option:hover {
+  background-color: #7d7dda;
+}
+
+.options-container.active + .selected-btn::after {
+  -webkit-transform: scaleY(-1);
+          transform: scaleY(-1);
+  left: 20%;
+  top: 15%;
+}
+
+.active-option {
+  background-color: #9e9ed6;
+}
+
+.active-option:hover {
+  background-color: #9e9ed6;
+}
+
+.radio {
+  display: none;
+}
+
+.selected-btn {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  background-color: #5656cf;
+  position: relative;
+}
+
+.selected-btn::after {
+  content: " ";
+  background-image: url("../assets/Vector 1.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  height: 100%;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -25%);
+          transform: translate(-50%, -25%);
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  width: 25px;
+  height: 25px;
+}
+
+.input-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.output-field {
+  background-color: white;
+  color: black;
+  width: 100%;
+  height: 50px;
+  font-size: 1.45em;
+  padding-left: 5px;
+  line-height: 50px;
+  background-color: #7d7de0;
+}
+
+.input-field {
+  width: 100%;
+  height: 50px;
+  font-size: 1.45em;
+  padding-left: 5px;
+  font-family: "Roboto Condensed", sans-serif;
+  border: none;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  background-color: #7d7de0;
+}
+
+.input-field:focus {
+  outline: none;
+  background-color: #eaeafd;
+}
+
+.input {
+  width: 100%;
+}
+
+.input-title {
+  margin-bottom: 1rem;
+}
+
+.input-title.right {
+  text-align: right;
+}
+
+.add-unit {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 0%;
+  opacity: 0;
+  width: 30%;
+  margin: auto;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  text-align: center;
+  overflow: hidden;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+
+.add-unit input {
+  height: 30px;
+  padding-left: 5px;
+  font-size: 1.25em;
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+.add-unit .add-unit-btn {
+  margin-top: 25px;
+  background-color: green;
+  padding: 0.5rem 0;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1.25em;
+}
+
+.show-add-unit-btn {
+  background-color: green;
+  padding: 0.5rem 0;
+  cursor: pointer;
+  width: 30%;
+  margin: auto;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.25em;
+  cursor: pointer;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+
+.add-unit.active-unit {
+  height: 25%;
+  opacity: 1;
+}
+
+@media only screen and (max-width: 1440px) {
+  section {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 60%;
+  }
+  .show-add-unit-btn {
+    width: 60%;
+  }
+  .add-unit {
+    width: 60%;
+  }
+}
+/*# sourceMappingURL=main.css.map */

@@ -5,9 +5,51 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles/main.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap"
+      rel="stylesheet"
+    />
     <title>Weight Conversion</title>
   </head>
   <body>
+    <main>
+      <div class="wrapper">
+        <h1>Weight Conversion</h1>
+
+        <section>
+          <div class="input">
+            <h2 class="input-title left">Unit</h2>
+            <div class="input-wrapper">
+              <input type="text" class="input-field" />
+              <div class="select-box">
+                <div class="options-container left"></div>
+                <div class="selected-btn left"></div>
+              </div>
+            </div>
+          </div>
+          <h2>To</h2>
+          <div class="input">
+            <h2 class="input-title right">Unit</h2>
+            <div class="input-wrapper">
+              <p class="output-field"></p>
+              <div class="select-box">
+                <div class="options-container right"></div>
+                <div class="selected-btn right"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <div class="show-add-unit-btn">Add New Unit</div>
+      <div class="add-unit">
+        <h3>Unit name</h3>
+        <input class="new-unit-name" type="text" />
+        <h3>How mutch is this unit in kg</h3>
+        <input class="new-unit-conversion" type="text" />
+        <div class="add-unit-btn">Add</div>
+      </div>
+    </main>
     <script src="./js/app.js"></script>
   </body>
 </html>
