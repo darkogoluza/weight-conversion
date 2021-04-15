@@ -151,6 +151,7 @@ section {
 
 .input {
   width: 100%;
+  padding: 1rem;
 }
 
 .input-title {
@@ -220,5 +221,8 @@ section {
 
   .add-unit {
     width: 60%;
+  }
+  .input {
+    padding: 0;
   }
 }

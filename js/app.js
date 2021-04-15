@@ -110,7 +110,7 @@ function addOption(id, active, left) {
       unitTitleLeft.textContent = `From ${option.textContent}`;
       currentUnitLeft = id;
     } else {
-      unitTitleRight.textContent = option.textContent;
+      unitTitleRight.textContent = `To ${option.textContent}`;
       currentUnitRight = id;
     }
   }
@@ -123,7 +123,7 @@ function addOption(id, active, left) {
       currentUnitLeft = option.textContent;
     } else {
       optionsContainerRight.classList.remove("active");
-      unitTitleRight.textContent = option.textContent;
+      unitTitleRight.textContent = `To ${option.textContent}`;
       deactivateOptions(optionsArrayRight);
       currentUnitRight = option.textContent;
     }
