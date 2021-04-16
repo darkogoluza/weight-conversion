@@ -1,19 +1,35 @@
+// ---------
+// VARIABELS
+// ---------
+
+// Left input
 const optionsContainerLeft = document.querySelector(".options-container.left");
 const selectBoxBtnLeft = document.querySelector(".selected-btn.left");
 const unitTitleLeft = document.querySelector(".input-title.left");
 
+// Right input
 const optionsContainerRight = document.querySelector(
   ".options-container.right"
 );
 const selectBoxBtnRight = document.querySelector(".selected-btn.right");
 const unitTitleRight = document.querySelector(".input-title.right");
 
+// Input and Output fields
 const inputField = document.querySelector(".input-field");
 const outputField = document.querySelector(".output-field");
 
+// Arrays that hold all of the Select Box options
 let optionsArrayLeft = new Array();
 let optionsArrayRight = new Array();
 
+// Default units {id: relative to kg}
+// Not proud of how I implemented the units object
+/* Better alternative was {
+  {id:"kg",relValue:1},
+  {id:"gram",relValue:1000},
+  ...
+}
+*/
 const units = {
   kg: 1,
   gram: 1000,
@@ -22,6 +38,7 @@ const units = {
   ton: 0.00110231,
 };
 
+// Current unit id
 let currentUnitLeft;
 let currentUnitRight;
 
@@ -32,22 +49,32 @@ const showAddUnitBtn = document.querySelector(".show-add-unit-btn");
 const newUnitName = document.querySelector(".new-unit-name");
 const newUnitConversion = document.querySelector(".new-unit-conversion");
 
+// ---------------
+// EVENT LISTENERS
+// ---------------
+
+// When clicked show or hide options container
 selectBoxBtnLeft.addEventListener("click", () => {
   optionsContainerLeft.classList.toggle("active");
 });
 
+// When clicked show or hide options container
 selectBoxBtnRight.addEventListener("click", () => {
   optionsContainerRight.classList.toggle("active");
 });
 
+// Allow digits and '.' only, using a RegExp
 setInputFilter(inputField, function (value) {
-  return /^\d*\.?\d*$/.test(value); // Allow digits and '.' only, using a RegExp
+  return /^\d*\.?\d*$/.test(value);
 });
 
+// Lisents for inputField value change
 inputField.addEventListener("input", () => {
   updateFields();
 });
 
+// Adds new unit to the local storage and to units variabel
+// Then closes it's self and shows "showAddUnitBtn"
 addUnitBtn.addEventListener("click", () => {
   addUnitContainer.classList.remove("active-unit");
 
@@ -66,6 +93,7 @@ addUnitBtn.addEventListener("click", () => {
   }, 400);
 });
 
+// Shows add new unit section
 showAddUnitBtn.addEventListener("click", () => {
   showAddUnitBtn.style.opacity = "0";
   showAddUnitBtn.style.pointerEvents = "none";
@@ -75,6 +103,11 @@ showAddUnitBtn.addEventListener("click", () => {
   }, 400);
 });
 
+// ---------
+// FUNCTIONS
+// ---------
+
+// Updates outputField
 function updateFields() {
   const inputValue = parseFloat(inputField.value);
   if (Number.isNaN(inputValue)) {
@@ -85,6 +118,8 @@ function updateFields() {
     (inputValue / units[currentUnitLeft]) * units[currentUnitRight];
 }
 
+// for each unit it adds an option to select box options container
+// Reads from localStorage
 function initization() {
   Object.entries(units).forEach(([key, item], index) => {
     index === 0 ? addOption(key, true, false) : addOption(key, false, false);
@@ -99,7 +134,9 @@ function initization() {
   });
 }
 
+// Adds option element to select box options container
 function addOption(id, active, left) {
+  // Settig up the option element
   const option = document.createElement("div");
   option.classList.add("option");
   option.textContent = id;
@@ -115,6 +152,8 @@ function addOption(id, active, left) {
     }
   }
 
+  // Adds event listener for each new option
+  // On click it updates what unit you are using to convert the weight
   option.addEventListener("click", () => {
     if (left) {
       optionsContainerLeft.classList.remove("active");
@@ -141,6 +180,7 @@ function addOption(id, active, left) {
   }
 }
 
+// Deactivates all option ellements
 function deactivateOptions(options) {
   options.forEach((item) => {
     item.classList.remove("active-option");
@@ -187,5 +227,6 @@ function allStorage() {
   return values;
 }
 
+// Starting the app
 initization();
 updateFields();
